@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <script src="/static/app.js" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <ul>
+                <li><a href="#" onclick="openTab(event, 'home')">Home</a></li>
+                <li><a href="#" onclick="openTab(event, 'create')">Create Users</a></li>
+                <li><a href="#" onclick="openTab(event, 'dashboard')">Dashboard</a></li>
+                <li><a href="#" onclick="openTab(event, 'cron')">Cron Jobs</a></li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <div id="home" class="tab-content">
+                <h2>Users Table</h2>
+                <div id="profiles-table">Loading...</div>
+            </div>
+
+            <div id="create" class="tab-content" style="display:none;">
+                <h2>Create User</h2>
+                <form id="create-form">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="bio">Bio:</label>
+                    <textarea id="bio" name="bio" required></textarea>
+
+                    <button type="submit">Create Profile</button>
+                </form>
+            </div>
+
+            <div id="dashboard" class="tab-content" style="display:none;">
+                <h2>Dashboard</h2>
+                <div id="charts" class="loading">Loading charts...</div>
+            </div>
+
+            <div id="cron" class="tab-content" style="display:none;">
+                <h2>Cron Jobs</h2>
+                <form id="cron-form">
+                    <label for="cron-name">Job Name:</label>
+                    <input type="text" id="cron-name" name="name" required>
+
+                    <label for="cron-command">Command:</label>
+                    <input type="text" id="cron-command" name="command" required>
+
+                    <label for="cron-schedule">Schedule (e.g., * * * * *):</label>
+                    <input type="text" id="cron-schedule" name="schedule" required>
+
+                    <button type="submit">Create Cron Job</button>
+                </form>
+                <h3>Existing Cron Jobs</h3>
+                <div id="cron-jobs-table">Loading...</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
